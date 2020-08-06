@@ -23,7 +23,7 @@ function App() {
             <button onClick={openMenu}>
               &#9776;
         </button>
-            <Link to="/" >amazona</Link>
+            <Link to="/" > My Store</Link>
           </div>
           <div className="header-links">
             <a href="cart.html">Cart</a>
