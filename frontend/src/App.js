@@ -6,6 +6,7 @@ import './App.css';
 import HomeScreen from './views/HomeScreen/HomeScreen';
 import ProductScreen from './views/ProudctScreen/ProductScreen';
 import CartScreen from './views/CartScreen';
+import SignInScreen from './views/SignInScreen/SignInScreen';
 
 function App() {
 
@@ -46,6 +47,7 @@ function App() {
         </aside>
         <main className="main">
           <div className="content">
+            <Route path= "sign" component = {SignInScreen}/>
             <Route path="/product/:id" component={ProductScreen} />
             <Route path="/cart/:id?" component={CartScreen} />
             <Route path="/" exact={true} component={HomeScreen} />
