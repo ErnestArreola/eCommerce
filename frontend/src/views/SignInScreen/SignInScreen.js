@@ -48,7 +48,7 @@ function SignInScreen(props) {
           </input>
         </li>
         <li>
-          <button type="submit" className="button primary">Signin</button>
+          <button type="submit" className="button primary"> Log In </button>
         </li>
         <li>
           New to eStore?
