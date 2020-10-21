@@ -24,9 +24,43 @@
   color: white;
 }
 
+html {
+  background-color: #d8d8d8;
+}
+
+body {
+  background-color: #d8d8d8;
+}
+
 .App-link {
   color: #61dafb;
 }
+
+.m-t-10 {
+  margin-top: 10px;
+}
+.font-14 {
+  font-size: 14px;
+}
+
+.m-b-10 {
+  margin-bottom: 10px;
+}
+
+.ml-auto,
+
+.mx-auto {
+  margin-left: auto !important;
+  margin-top: 60px; }
+
+.p-10 {
+  padding: 10px;
+}
+
+.p-l-10{
+  padding-left: 0px;
+}
+
 
 @keyframes App-logo-spin {
   from {

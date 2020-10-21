@@ -1,0 +1,29 @@
+@import 'scss/mixins';
+
+//Global
+
+@import "scss/_variables";
+@import "scss/responsive";
+@import "scss/typography";
+@import "scss/section";
+
+
+//Components
+@import "scss/footers";
+@import "scss/navbar";
+@import "scss/headers";
+@import "scss/images";
+@import "scss/sidebar";
+@import "scss/gallery-scroll";
+@import "scss/swiper";
+@import "scss/inputs";
+@import "scss/card-register";
+@import "scss/hero-section";
+@import "scss/buttons";
+
+
+
+//mixins
+@import "scss/mixins/vendor-prefixes";
+@import "scss/mixins/transparency";
+@import "scss/mixins/navbars";

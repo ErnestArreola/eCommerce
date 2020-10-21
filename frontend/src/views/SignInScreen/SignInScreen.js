@@ -3,13 +3,27 @@ import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { signin } from '../../actions/userActions';
 
-function SignInScreen(props) {
+import  {
+
+} from "reactstrap";
+
+function SigninScreen(props) {
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const userSignin = useSelector(state => state.userSignIn);
+  const userSignin = useSelector(state => state.userSignin);
   const { loading, userInfo, error } = userSignin;
   const dispatch = useDispatch();
+
+  document.documentElement.classList.remove("nav-open");
+React.useEffect(() =>  {
+  document.body.classList.add("register-page");
+  return function cleanup() {
+    document.body.classList.remove("register-page");
+
+  };
+
+});
 
   useEffect(() => {
     if (userInfo) {
@@ -25,7 +39,13 @@ function SignInScreen(props) {
     dispatch(signin(email, password));
 
   }
-  return <div className="form">
+  return <div className = "form">
+    <div 
+    className = "page-header"
+    style = {{
+      backgroundImage: "url(" + require("../../assets/img/back.jpg") + ")",
+    }} 
+    >
     <form onSubmit={submitHandler} >
       <ul className="form-container">
         <li>
@@ -58,6 +78,9 @@ function SignInScreen(props) {
         </li>
       </ul>
     </form>
+    </div>
   </div>
+
+
 }
-export default SignInScreen;
+export default SigninScreen;

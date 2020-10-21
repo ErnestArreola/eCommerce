@@ -1,20 +1,29 @@
 import React from 'react';
 import { BrowserRouter, Route, Link } from 'react-router-dom'
-import './App.css';
 import { useSelector } from 'react-redux';
+
+import './App.css';
 
 
 //views
 import HomeScreen from './views/HomeScreen/HomeScreen';
 import ProductScreen from './views/ProudctScreen/ProductScreen';
 import CartScreen from './views/CartScreen';
-import SignInScreen from './views/SignInScreen/SignInScreen';
+import SigninScreen from './views/SignInScreen/SigninScreen';
 import RegisterScreen from './views/RegisterScreen/RegisterScreen';
+import ProductManageScreen from './views/ProductManageScreen/ProductManageScreen';
+
+//components
+import IndexNavbar from "./components/Navbar/IndexNavbar";
+import IndexFooter from "./components/Footers/IndexFooter";
+import IndexHeader from "./components/Headers/IndexHeader";
+import Footer from "./components/Footers/FooterHome";
+
 
 
 function App() {
 
-  const userSignin = useSelector(state => state.userSignIn);
+  const userSignin = useSelector(state => state.userSignin);
   const {userInfo} = userSignin;
 
   const openMenu = () => {
@@ -23,55 +32,25 @@ function App() {
   const closeMenu = () => {
     document.querySelector(".sidebar").classList.remove("open")
   }
+
   return (
+
     <BrowserRouter>
-      <div className="grid-container">
-        <header className="header">
-          <div className="brand">
-            <button onClick={openMenu}>
-              &#9776;
-        </button>
-            <Link to="/" > eStore </Link>
-          </div>
-          <div className="header-links">
-            <a href="cart.html">Cart</a>
-            {
-              userInfo ? <Link to="/profile">{userInfo.name}</Link> :
-                <Link to="/signin">Sign In</Link>
-            }
-          </div>
-        </header>
-        <aside className="sidebar">
-          <h3>Shopping Categories</h3>
-          <button className="sidebar-close-button" onClick={closeMenu}>x</button>
-          <ul>
-            <li>
-              <a href="index.html">Pants</a>
-            </li>
-
-            <li>
-              <a href="index.html">Shirts</a>
-            </li>
-
-          </ul>
-        </aside>
-        <main className="main">
-          <div className="content">
-            <Route path="/products" component={ProductScreen}/>
-            <Route path="/signin" component={SignInScreen} />
-            <Route path="/register" component={RegisterScreen} />
-            <Route path="/product/:id" component={ProductScreen} />
-            <Route path="/cart/:id?" component={CartScreen} />
-            <Route path="/" exact={true} component={HomeScreen} />
-
-
-          </div>
-
-        </main>
-        <footer className="footer">
-          All right reserved.
-    </footer>
+      <IndexNavbar/>
+        <div className="grid-container">
+          <main className="main">
+            <div className="content">
+              <Route path="/products" component={ProductManageScreen}/>
+              <Route path="/signin" component={SigninScreen} />
+              <Route path="/register" component={RegisterScreen} />
+              <Route path="/product/:id" component={ProductScreen} />
+              <Route path="/cart/:id?" component={CartScreen} />
+              <Route path="/" exact={true} component={HomeScreen} />
+            </div>
+          </main>
       </div>
+      <Footer>
+    </Footer>
     </BrowserRouter>
   );
 }
